@@ -14,7 +14,11 @@ module StackMaster
     end
 
     def default_config_file
-      "stack_master.yml"
+      if ENV['STACK']
+        "stack_master.#{ENV['STACK']}.yml"
+      else
+        "stack_master.yml"
+      end
     end
 
     def execute!
